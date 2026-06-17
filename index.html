@@ -1252,9 +1252,16 @@
   }
 
   .mock-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mock-preview-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px;
+    align-items: start;
   }
 
   .mock-card {
@@ -1263,46 +1270,156 @@
     overflow: hidden;
   }
 
-  .mock-card__badge {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 10px;
-    background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    color: var(--text-muted);
+  .mock-card--google {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.12), 0 2px 8px rgba(60, 64, 67, 0.08);
   }
 
-  .mock-google { padding: 16px; }
+  .mock-card--ig {
+    border-radius: 4px;
+  }
+
+  .mock-google__platform {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e8eaed;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5f6368;
+  }
+
+  .mock-google__platform svg { flex-shrink: 0; }
+
+  .mock-google__place {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid #f1f3f4;
+  }
+
+  .mock-google__place-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: #202124;
+    margin-bottom: 4px;
+  }
+
+  .mock-google__place-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #5f6368;
+  }
+
+  .mock-google__place-score {
+    color: #202124;
+    font-weight: 500;
+  }
+
+  .mock-google__place-stars {
+    color: #FBBC04;
+    letter-spacing: 0;
+    font-size: 13px;
+  }
+
+  .mock-google__body { padding: 14px 16px 16px; }
 
   .mock-google__head {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .mock-google__avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--navy);
+    background: #1a73e8;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
+    flex-shrink: 0;
   }
 
-  .mock-google__name { font-size: 14px; font-weight: 700; }
-  .mock-google__meta { font-size: 11px; color: var(--text-muted); }
+  .mock-google__avatar.is-alt { background: #9334e6; }
 
-  .mock-stars { color: #FBBC04; font-size: 14px; letter-spacing: 1px; margin-bottom: 8px; }
+  .mock-google__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #202124;
+    line-height: 1.3;
+  }
 
-  .mock-google__text,
-  .mock-ig__caption { font-size: 13px; line-height: 1.5; color: var(--text); }
+  .mock-google__meta {
+    font-size: 12px;
+    color: #5f6368;
+    margin-top: 2px;
+  }
+
+  .mock-google__stars {
+    color: #FBBC04;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .mock-google__text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #3c4043;
+  }
+
+  .mock-google__photos {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    overflow-x: auto;
+  }
+
+  .mock-google__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background-color: #e8eaed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #e8eaed;
+  }
+
+  .mock-google__helpful {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 7px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5f6368;
+    background: #fff;
+  }
+
+  .mock-ig__platform {
+    padding: 7px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: #fafafa;
+    border-bottom: 1px solid var(--border);
+  }
 
   .mock-ig__header {
     display: flex;
@@ -1433,9 +1550,8 @@
   }
 
   .mock-ig__body { padding: 8px 14px 16px; }
-  .mock-ig__user { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
   .mock-ig__likes { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
-  .mock-ig__stars { color: #FBBC04; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+  .mock-ig__caption { font-size: 13px; line-height: 1.5; color: var(--text); }
 
   .float-wa {
     position: fixed;
@@ -2009,7 +2125,7 @@
 <section class="boutique-section" aria-labelledby="feedbackTitle">
   <div class="boutique-panel">
     <h2 class="boutique-panel__title" id="feedbackTitle" data-i18n="feedback_title">Com'è stata la tua esperienza?</h2>
-    <p class="boutique-panel__lead" data-i18n="feedback_lead">Lascia un feedback dopo la visita o l'acquisto. Anteprima di come potrebbe apparire su Google o Instagram — solo mockup, nessun account collegato.</p>
+    <p class="boutique-panel__lead" data-i18n="feedback_lead">Lascia un feedback dopo la visita o l'acquisto. Anteprima di come potrebbe apparire su Google o Instagram — non pubblicato sui social.</p>
     <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
       <div>
         <label for="feedbackName" data-i18n="feedback_name">Il tuo nome</label>
@@ -2031,7 +2147,7 @@
       </div>
       <button type="submit" class="feedback-submit" data-i18n="feedback_submit">Invia feedback</button>
     </form>
-    <p class="mock-label" data-i18n="mock_preview_label">Anteprima mockup — non pubblicato sui social</p>
+    <p class="mock-label" data-i18n="mock_preview_label">Anteprima — non pubblicato sui social</p>
     <div class="mock-grid" id="feedbackMockups"></div>
   </div>
 </section>
@@ -2624,7 +2740,7 @@ const translations = {
     share_copied: 'Link copiato!',
     share_message: 'Guarda le promozioni da 02 Boutique — selezione uomo Tommy Hilfiger. {url}',
     feedback_title: 'Com\'è stata la tua esperienza?',
-    feedback_lead: 'Lascia un feedback dopo la visita o l\'acquisto. Anteprima di come potrebbe apparire su Google o Instagram — solo mockup, nessun account collegato.',
+    feedback_lead: 'Lascia un feedback dopo la visita o l\'acquisto. Anteprima di come potrebbe apparire su Google o Instagram — non pubblicato sui social.',
     feedback_name: 'Il tuo nome',
     feedback_rating: 'Valutazione',
     feedback_comment: 'Il tuo commento',
@@ -2632,9 +2748,13 @@ const translations = {
     feedback_submit: 'Invia feedback',
     feedback_thanks: 'Grazie! Ecco l\'anteprima del tuo feedback.',
     feedback_pick_stars: 'Seleziona una valutazione',
-    mock_preview_label: 'Anteprima mockup — non pubblicato sui social',
-    mock_google_badge: 'Mockup Google Recensioni',
-    mock_ig_badge: 'Mockup Instagram',
+    mock_preview_label: 'Anteprima — non pubblicato sui social',
+    mock_google_platform: 'Google Recensioni',
+    mock_google_business: '02 Boutique',
+    mock_google_score: '4,9',
+    mock_google_count: '127 recensioni',
+    mock_google_helpful: 'Utile',
+    mock_ig_platform: 'Instagram',
     mock_ig_user: '02boutique_official',
     mock_ig_location: '02 Boutique',
     mock_ig_banner_brand: '02 Boutique',
@@ -2739,7 +2859,7 @@ const translations = {
     share_copied: 'Link copied!',
     share_message: 'Check out the offers from 02 Boutique — men\'s Tommy Hilfiger selection. {url}',
     feedback_title: 'How was your experience?',
-    feedback_lead: 'Leave feedback after your visit or purchase. Preview of how it could look on Google or Instagram — mockup only, no accounts connected.',
+    feedback_lead: 'Leave feedback after your visit or purchase. Preview of how it could look on Google or Instagram — not posted to social media.',
     feedback_name: 'Your name',
     feedback_rating: 'Rating',
     feedback_comment: 'Your comment',
@@ -2747,9 +2867,13 @@ const translations = {
     feedback_submit: 'Send feedback',
     feedback_thanks: 'Thank you! Here\'s a preview of your feedback.',
     feedback_pick_stars: 'Please select a rating',
-    mock_preview_label: 'Mockup preview — not posted to social media',
-    mock_google_badge: 'Mockup Google Reviews',
-    mock_ig_badge: 'Mockup Instagram',
+    mock_preview_label: 'Preview — not posted to social media',
+    mock_google_platform: 'Google Reviews',
+    mock_google_business: '02 Boutique',
+    mock_google_score: '4.9',
+    mock_google_count: '127 reviews',
+    mock_google_helpful: 'Helpful',
+    mock_ig_platform: 'Instagram',
     mock_ig_user: '02boutique_official',
     mock_ig_location: '02 Boutique',
     mock_ig_banner_brand: '02 Boutique',
@@ -3713,20 +3837,48 @@ function initials(name) {
   return name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase() || '?';
 }
 
-function renderMockGoogleCard(entry) {
+function googleLogoSvg() {
+  return `<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>`;
+}
+
+function renderReviewPhotos(files) {
+  return files.map((file) =>
+    `<div class="mock-google__photo" style="background-image:url('${IMG(file)}')" role="img" aria-label=""></div>`
+  ).join('');
+}
+
+function renderMockGoogleCard(entry, index = 0) {
+  const photoSets = [
+    ['MW0MW40701_Z00_main.webp', 'MW0MW42916_BDS_main.webp', 'MW0MW37550_MAI_main.webp'],
+    ['MW0MW42317_1A7_main.webp', 'MW0MW42694_DCA_main.webp', 'MW0MW43136_RBT_main.webp'],
+    ['MW0MW42548_A1O_main.webp', 'MW0MW42440_0A6_main.webp', 'MW0MW25964_C3I_main.webp']
+  ];
+  const photos = photoSets[index % photoSets.length];
+  const avatarAlt = index % 2 === 1 ? ' is-alt' : '';
+
   return `
-    <article class="mock-card">
-      <div class="mock-card__badge">${t('mock_google_badge')}</div>
-      <div class="mock-google">
+    <article class="mock-card mock-card--google">
+      <div class="mock-google__platform">${googleLogoSvg()} ${t('mock_google_platform')}</div>
+      <div class="mock-google__place">
+        <div class="mock-google__place-name">${t('mock_google_business')}</div>
+        <div class="mock-google__place-meta">
+          <span class="mock-google__place-score">${t('mock_google_score')}</span>
+          <span class="mock-google__place-stars" aria-hidden="true">★★★★★</span>
+          <span>· ${t('mock_google_count')}</span>
+        </div>
+      </div>
+      <div class="mock-google__body">
         <div class="mock-google__head">
-          <div class="mock-google__avatar">${initials(entry.name)}</div>
+          <div class="mock-google__avatar${avatarAlt}">${initials(entry.name)}</div>
           <div>
             <div class="mock-google__name">${escapeHtml(entry.name)}</div>
             <div class="mock-google__meta">${t('mock_time')}</div>
           </div>
         </div>
-        <div class="mock-stars" aria-hidden="true">${starsHtml(entry.rating)}</div>
+        <div class="mock-google__stars" aria-hidden="true">${starsHtml(entry.rating)}</div>
         <p class="mock-google__text">${escapeHtml(entry.comment)}</p>
+        <div class="mock-google__photos">${renderReviewPhotos(photos)}</div>
+        <div class="mock-google__helpful" aria-hidden="true">👍 ${t('mock_google_helpful')}</div>
       </div>
     </article>
   `;
@@ -3741,8 +3893,8 @@ function renderMockInstagramCard(entry, index = 0) {
   const [imgA, imgB] = pairs[index % pairs.length];
 
   return `
-    <article class="mock-card">
-      <div class="mock-card__badge">${t('mock_ig_badge')}</div>
+    <article class="mock-card mock-card--ig">
+      <div class="mock-ig__platform">${t('mock_ig_platform')}</div>
       <div class="mock-ig__header">
         <div class="mock-ig__avatar" aria-hidden="true">02</div>
         <div class="mock-ig__profile">
@@ -3765,7 +3917,6 @@ function renderMockInstagramCard(entry, index = 0) {
       <div class="mock-ig__bar" aria-hidden="true">♡ 💬 ↗ 🔖</div>
       <div class="mock-ig__body">
         <div class="mock-ig__likes">${t('mock_ig_likes')}</div>
-        <div class="mock-ig__stars" aria-hidden="true">${starsHtml(entry.rating)}</div>
         <p class="mock-ig__caption"><strong>${escapeHtml(entry.name)}</strong> ${escapeHtml(entry.comment)}</p>
       </div>
     </article>
@@ -3792,9 +3943,12 @@ function renderFeedbackMockups() {
   if (!el) return;
   const userEntries = loadFeedbackEntries();
   const entries = [...userEntries, ...getSeedFeedback()].slice(0, 3);
-  el.innerHTML = entries.map((entry, index) =>
-    renderMockGoogleCard(entry) + renderMockInstagramCard(entry, index)
-  ).join('');
+  el.innerHTML = entries.map((entry, index) => `
+    <div class="mock-preview-row">
+      ${renderMockGoogleCard(entry, index)}
+      ${renderMockInstagramCard(entry, index)}
+    </div>
+  `).join('');
 }
 
 function submitFeedback(e) {
