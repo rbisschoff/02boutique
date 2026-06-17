@@ -1,0 +1,6 @@
+tmp_*
+*.txt
+!README.md
+!SETUP-PAYPAL-SHEETS.md
+images/_originals/
+scripts/tools/

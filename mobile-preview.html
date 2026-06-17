@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02Boutique — Mobile preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px;
+      gap: 20px;
+    }
+
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .controls button {
+      border: 1px solid #444;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .controls button.active {
+      background: #00174F;
+      border-color: #002F87;
+    }
+
+    .frame-wrap {
+      position: relative;
+    }
+
+    .phone-shell {
+      background: #1a1a1a;
+      border: 10px solid #2a2a2a;
+      border-radius: 34px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-shell::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 24px;
+      background: #2a2a2a;
+      border-radius: 0 0 16px 16px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    iframe {
+      display: block;
+      border: 0;
+      background: #fff;
+    }
+
+    .hint {
+      max-width: 420px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #999;
+    }
+
+    .hint code {
+      background: #222;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>02Boutique — mobile preview</h1>
+
+  <div class="controls">
+    <button type="button" class="active" data-w="390" data-h="844">iPhone 14</button>
+    <button type="button" data-w="360" data-h="780">Android</button>
+    <button type="button" data-w="768" data-h="1024">Tablet</button>
+  </div>
+
+  <div class="frame-wrap">
+    <div class="phone-shell" id="phoneShell">
+      <iframe id="preview" src="index.html" title="02Boutique shop" width="390" height="844"></iframe>
+    </div>
+  </div>
+
+  <p class="hint">
+    Open this file in Chrome or Edge. For a full-screen test on your phone, use DevTools
+    (<code>F12</code> → device icon) on <code>index.html</code>, or host the folder locally.
+  </p>
+
+  <script>
+    const iframe = document.getElementById('preview');
+    const buttons = document.querySelectorAll('.controls button');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const w = btn.dataset.w;
+        const h = btn.dataset.h;
+        iframe.width = w;
+        iframe.height = h;
+      });
+    });
+  </script>
+</body>
+</html>

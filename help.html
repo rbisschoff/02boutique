@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02Boutique — Servizio clienti</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00174F;
+    --text: #1B1B1B;
+    --text-muted: #6B6B6B;
+    --border: #E5E5E5;
+    --gold: #846733;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: #FFF;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .logo-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .lang-toggle { display: flex; gap: 12px; align-items: center; }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #999;
+    padding: 4px 8px;
+  }
+
+  .lang-btn.active { color: var(--text); }
+  .lang-divider { color: var(--border); }
+
+  .help-hero {
+    padding: 40px 28px 32px;
+    border-bottom: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .help-back {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  .help-back:hover { color: var(--text); }
+
+  .help-hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .help-subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .help-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 28px 64px;
+  }
+
+  .help-categories {
+    list-style: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .help-categories li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .help-categories a,
+  .help-categories span {
+    display: block;
+    padding: 18px 4px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .help-categories a:hover { opacity: 0.7; }
+
+  .help-categories span {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .faq-list { border-top: 1px solid var(--border); }
+
+  .faq-item { border-bottom: 1px solid var(--border); }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 4px;
+    background: none;
+    border: none;
+    text-align: left;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  .faq-question:hover { opacity: 0.75; }
+
+  .faq-icon {
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    display: none;
+    padding: 0 4px 20px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  .faq-answer p { margin-bottom: 12px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+
+  .faq-answer ul {
+    margin: 8px 0 12px 0;
+    padding-left: 20px;
+  }
+
+  .faq-answer li { margin-bottom: 6px; }
+
+  .legal-doc { border-top: 1px solid var(--border); }
+
+  .legal-section {
+    padding: 24px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .legal-section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .legal-section p { margin-bottom: 12px; line-height: 1.65; }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section ul { margin: 8px 0 12px 0; padding-left: 20px; }
+  .legal-section li { margin-bottom: 6px; }
+
+  .sitemap-groups { border-top: 1px solid var(--border); }
+
+  .sitemap-group {
+    padding: 24px 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sitemap-group h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .sitemap-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sitemap-links a {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .sitemap-links a:hover { opacity: 0.7; }
+
+  .help-footer-note {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .help-footer-note h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .help-footer-note p {
+    font-size: 13px;
+    color: var(--gold);
+  }
+
+  footer {
+    background: #1B1B1B;
+    color: #ccc;
+    padding: 40px 28px 24px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+    color: #777;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">
+    <span class="logo-num">02</span><span class="logo-name">Boutique</span>
+  </a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="switchLanguage('it')">IT</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+  </div>
+</header>
+
+<div class="help-hero">
+  <a class="help-back" id="helpBack" href="index.html">← Torna allo shop</a>
+  <h1 id="pageTitle">FAQ</h1>
+  <p class="help-subtitle" id="pageSubtitle"></p>
+</div>
+
+<main class="help-main" id="helpMain"></main>
+
+<footer>
+  <div class="footer-bottom">© 2026 02Boutique — Tommy Hilfiger selection</div>
+</footer>
+
+<script src="help-content.js"></script>
+<script src="legal-content.js"></script>
+<script>
+let currentLanguage = 'it';
+let currentPage = 'faq';
+
+function getPage(page) {
+  return HELP_PAGES[page] || LEGAL_PAGES[page];
+}
+
+function getPageKey() {
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get('page') || 'faq';
+  return getPage(page) ? page : 'faq';
+}
+
+function formatAnswer(text) {
+  const blocks = text.split('\n\n');
+  return blocks.map(block => {
+    const lines = block.split('\n').filter(Boolean);
+    const bullets = lines.filter(l => l.startsWith('- '));
+    if (bullets.length && bullets.length === lines.length) {
+      return '<ul>' + bullets.map(l => `<li>${escapeHtml(l.slice(2))}</li>`).join('') + '</ul>';
+    }
+    if (lines.length === 1 && !lines[0].startsWith('- ')) {
+      const isHeading = !lines[0].includes(':') && lines[0].length < 60 && !lines[0].match(/^\d/);
+      if (isHeading && block === lines[0]) {
+        return `<p><strong>${escapeHtml(lines[0])}</strong></p>`;
+      }
+    }
+    return `<p>${escapeHtml(block).replace(/\n/g, '<br>')}</p>`;
+  }).join('');
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function renderLegalSection(body) {
+  return formatAnswer(body);
+}
+
+function renderLegalPage(page) {
+  return `
+    <div class="legal-doc">
+      ${page.sections.map(section => `
+        <section class="legal-section">
+          <h2>${escapeHtml(section.heading[currentLanguage])}</h2>
+          <div>${renderLegalSection(section.body[currentLanguage])}</div>
+        </section>
+      `).join('')}
+    </div>
+    ${renderHelpNote(HELP_UI[currentLanguage])}
+  `;
+}
+
+function renderSitemapPage(page) {
+  return `
+    <div class="sitemap-groups">
+      ${page.groups.map(group => `
+        <section class="sitemap-group">
+          <h2>${escapeHtml(group.heading[currentLanguage])}</h2>
+          <ul class="sitemap-links">
+            ${group.links.map(link => `
+              <li><a href="${link.href}">${escapeHtml(link.label[currentLanguage])}</a></li>
+            `).join('')}
+          </ul>
+        </section>
+      `).join('')}
+    </div>
+    ${renderHelpNote(HELP_UI[currentLanguage])}
+  `;
+}
+
+function renderPage() {
+  const page = getPage(currentPage);
+  const ui = HELP_UI[currentLanguage];
+  const title = page.title[currentLanguage];
+
+  document.title = `02Boutique — ${title}`;
+  document.getElementById('pageTitle').textContent = title;
+  document.getElementById('helpBack').textContent = `← ${ui.back_shop}`;
+  document.getElementById('pageSubtitle').textContent =
+    page.type === 'hub' ? ui.hub_subtitle : '';
+
+  const main = document.getElementById('helpMain');
+
+  if (page.type === 'legal') {
+    main.innerHTML = renderLegalPage(page);
+    return;
+  }
+
+  if (page.type === 'sitemap') {
+    main.innerHTML = renderSitemapPage(page);
+    return;
+  }
+
+  if (page.type === 'hub') {
+    main.innerHTML = `
+      <ul class="help-categories">
+        ${page.categories.map(cat =>
+          `<li><a href="help.html?page=${cat.page}">${cat.label[currentLanguage]}</a></li>`
+        ).join('')}
+      </ul>
+      ${renderHelpNote(ui)}
+    `;
+    return;
+  }
+
+  main.innerHTML = `
+    <div class="faq-list">
+      ${page.faqs.map((item, i) => `
+        <div class="faq-item" id="faq-${i}">
+          <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(${i})">
+            <span>${item.q[currentLanguage]}</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">${formatAnswer(item.a[currentLanguage])}</div>
+        </div>
+      `).join('')}
+    </div>
+    ${renderHelpNote(ui)}
+  `;
+}
+
+function renderHelpNote(ui) {
+  return `
+    <div class="help-footer-note">
+      <h2>${ui.need_help}</h2>
+      <p>${ui.help_hours}</p>
+    </div>
+  `;
+}
+
+function toggleFaq(index) {
+  const item = document.getElementById(`faq-${index}`);
+  const btn = item.querySelector('.faq-question');
+  const open = item.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function switchLanguage(lang) {
+  currentLanguage = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  renderPage();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  currentPage = getPageKey();
+  renderPage();
+});
+</script>
+</body>
+</html>
