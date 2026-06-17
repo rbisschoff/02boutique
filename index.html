@@ -1046,6 +1046,80 @@
     cursor: pointer;
   }
 
+  /* Value proposition */
+  .value-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--tommy-blue) 100%);
+    color: #fff;
+    padding: 36px 32px 40px;
+    margin-bottom: 8px;
+  }
+
+  .value-banner__inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .value-banner__stripe {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .value-banner__stripe span {
+    display: block;
+    width: 36px;
+    height: 4px;
+  }
+
+  .value-banner__stripe span:nth-child(1) { background: var(--accent); }
+  .value-banner__stripe span:nth-child(2) { background: #fff; }
+  .value-banner__stripe span:nth-child(3) { background: rgba(255, 255, 255, 0.45); }
+
+  .value-banner__title {
+    font-size: clamp(22px, 3.2vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    max-width: 28rem;
+  }
+
+  .value-banner__lead {
+    font-size: clamp(15px, 2vw, 17px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 20px;
+    max-width: 40rem;
+  }
+
+  .value-banner__points {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .value-banner__points li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .value-banner__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(204, 12, 47, 0.25);
+  }
+
   /* Boutique share & feedback */
   .boutique-section {
     max-width: 960px;
@@ -1107,52 +1181,6 @@
   .share-btn--copy { background: #fff; color: var(--text); border: 1px solid var(--border); }
 
   .share-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-  .owner-kit {
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-  }
-
-  .owner-kit summary {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .owner-kit summary::-webkit-details-marker { display: none; }
-
-  .owner-kit__body { margin-top: 14px; }
-
-  .sms-template {
-    background: #fff;
-    border: 1px solid var(--border);
-    padding: 14px 16px;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: var(--text);
-  }
-
-  .owner-copy-btn {
-    padding: 8px 14px;
-    background: var(--navy);
-    color: #fff;
-    border: none;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .owner-copy-btn:hover { background: var(--tommy-blue); }
 
   .feedback-form {
     display: grid;
@@ -1276,17 +1304,123 @@
   .mock-google__text,
   .mock-ig__caption { font-size: 13px; line-height: 1.5; color: var(--text); }
 
-  .mock-ig__photo {
-    aspect-ratio: 1;
-    background: linear-gradient(145deg, var(--cream) 0%, #e8e8e8 100%);
+  .mock-ig__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mock-ig__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--tommy-blue));
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .mock-ig__profile {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mock-ig__username {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .mock-ig__location {
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .mock-ig__media {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+
+  .mock-ig__duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mock-ig__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mock-ig__banner {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .mock-ig__banner-brand {
+    display: block;
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 28px;
+    font-size: 15px;
     font-weight: 600;
-    color: var(--navy);
-    letter-spacing: 4px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    margin-bottom: 2px;
+  }
+
+  .mock-ig__banner-tag {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .mock-ig__dots {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  .mock-ig__dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .mock-ig__dots span.is-active {
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
   }
 
   .mock-ig__bar {
@@ -1297,28 +1431,45 @@
   }
 
   .mock-ig__body { padding: 8px 14px 16px; }
-  .mock-ig__user { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .mock-ig__user { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .mock-ig__likes { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .mock-ig__stars { color: #FBBC04; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
 
   .float-wa {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 900;
-    width: 56px;
+    bottom: max(20px, env(safe-area-inset-bottom, 0px));
+    right: max(20px, env(safe-area-inset-right, 0px));
+    z-index: 9990;
+    width: auto;
+    min-width: 56px;
     height: 56px;
-    border-radius: 50%;
+    padding: 0 18px 0 14px;
+    border-radius: 999px;
     background: #25D366;
     color: #fff;
-    border: none;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(37, 211, 102, 0.45);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
 
-  .float-wa svg { width: 28px; height: 28px; }
+  .float-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24), 0 4px 12px rgba(37, 211, 102, 0.5);
+  }
+
+  .float-wa svg { width: 26px; height: 26px; flex-shrink: 0; }
+
+  .float-wa__label { white-space: nowrap; }
 
   footer {
     background: #111;
@@ -1710,7 +1861,8 @@
     .boutique-panel { padding: 22px 18px; }
     .share-actions { flex-direction: column; }
     .share-btn { justify-content: center; width: 100%; }
-    .float-wa { bottom: 16px; right: 16px; width: 52px; height: 52px; }
+    .value-banner { padding: 28px 18px 32px; }
+    .float-wa { bottom: max(16px, env(safe-area-inset-bottom, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); height: 52px; padding: 0 16px 0 12px; }
   }
 </style>
 </head>
@@ -1813,23 +1965,29 @@
   </div>
 </section>
 
+<section class="value-banner" aria-labelledby="boutiqueNoteTitle">
+  <div class="value-banner__inner">
+    <div class="value-banner__stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <h2 class="value-banner__title" id="boutiqueNoteTitle" data-i18n="boutique_note_title">Selezione limitata, servizio personale</h2>
+    <p class="value-banner__lead" data-i18n="boutique_note_lead">02 Boutique propone online solo una parte della collezione. Ogni ordine viene gestito personalmente dal negozio — niente grandi volumi, niente stress. Preferisci passare in negozio? Scrivici su WhatsApp e ti riserviamo la taglia.</p>
+    <ul class="value-banner__points">
+      <li data-i18n="value_point_1">Selezione curata — non tutto il catalogo, solo pezzi scelti</li>
+      <li data-i18n="value_point_2">Ordine gestito dal negozio, con attenzione personale</li>
+      <li data-i18n="value_point_3">Passa in negozio o scrivici su WhatsApp per riservare la taglia</li>
+    </ul>
+  </div>
+</section>
+
 <div class="container">
   <h2 class="section-title" data-i18n="section_title">Pezzi in Promozione</h2>
   <p class="section-subtitle" data-i18n="section_subtitle">Tommy Hilfiger — selezione uomo</p>
   <div id="garmentsList" class="garments-layout"></div>
 </div>
 
-<section class="boutique-section" aria-labelledby="boutiqueNoteTitle">
-  <div class="boutique-panel">
-    <h2 class="boutique-panel__title" id="boutiqueNoteTitle" data-i18n="boutique_note_title">Selezione limitata, servizio personale</h2>
-    <p class="boutique-panel__lead" data-i18n="boutique_note_lead">02 Boutique propone online solo una parte della collezione. Ogni ordine viene gestito personalmente dal negozio — niente grandi volumi, niente stress. Preferisci passare in negozio? Scrivici su WhatsApp e ti riserviamo la taglia.</p>
-  </div>
-</section>
-
 <section class="boutique-section" aria-labelledby="shareTitle">
   <div class="boutique-panel">
     <h2 class="boutique-panel__title" id="shareTitle" data-i18n="share_title">Condividi le offerte</h2>
-    <p class="boutique-panel__lead" data-i18n="share_lead">Invia la pagina ai clienti come fai già via SMS — in un tap, con link e testo pronto.</p>
+    <p class="boutique-panel__lead" data-i18n="share_lead">Ti piace la selezione? Condividi la pagina con chi vuoi.</p>
     <div class="share-actions">
       <button type="button" class="share-btn share-btn--wa" onclick="shareViaWhatsApp()">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1843,13 +2001,6 @@
         <span data-i18n="share_copy">Copia link</span>
       </button>
     </div>
-    <details class="owner-kit">
-      <summary data-i18n="owner_kit_toggle">Per il negoziante — testo SMS pronto</summary>
-      <div class="owner-kit__body">
-        <p class="sms-template" id="ownerSmsTemplate"></p>
-        <button type="button" class="owner-copy-btn" onclick="copyOwnerSms()" data-i18n="owner_copy_sms">Copia messaggio SMS</button>
-      </div>
-    </details>
   </div>
 </section>
 
@@ -1885,6 +2036,7 @@
 
 <a class="float-wa" id="floatWhatsApp" href="#" onclick="contactShopWhatsApp(); return false;" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="float-wa__label" data-i18n="float_wa_label">WhatsApp</span>
 </a>
 
 <footer>
@@ -2452,16 +2604,17 @@ const translations = {
     shipping_free: 'Gratis',
     boutique_note_title: 'Selezione limitata, servizio personale',
     boutique_note_lead: '02 Boutique propone online solo una parte della collezione. Ogni ordine viene gestito personalmente dal negozio — niente grandi volumi, niente stress. Preferisci passare in negozio? Scrivici su WhatsApp e ti riserviamo la taglia.',
+    value_point_1: 'Selezione curata — non tutto il catalogo, solo pezzi scelti',
+    value_point_2: 'Ordine gestito dal negozio, con attenzione personale',
+    value_point_3: 'Passa in negozio o scrivici su WhatsApp per riservare la taglia',
+    float_wa_label: 'WhatsApp',
     share_title: 'Condividi le offerte',
-    share_lead: 'Invia la pagina ai clienti come fai già via SMS — in un tap, con link e testo pronto.',
+    share_lead: 'Ti piace la selezione? Condividi la pagina con chi vuoi.',
     share_whatsapp: 'WhatsApp',
     share_sms: 'SMS',
     share_copy: 'Copia link',
     share_copied: 'Link copiato!',
-    owner_kit_toggle: 'Per il negoziante — testo SMS pronto',
-    owner_copy_sms: 'Copia messaggio SMS',
-    owner_sms_copied: 'Messaggio copiato!',
-    owner_sms_template: 'Nuove offerte da 02 Boutique! Vieni a vedere — 30% sconto su selezione uomo Tommy Hilfiger. {url}',
+    share_message: 'Guarda le promozioni da 02 Boutique — selezione uomo Tommy Hilfiger. {url}',
     feedback_title: 'Com\'è stata la tua esperienza?',
     feedback_lead: 'Lascia un feedback dopo la visita o l\'acquisto. Anteprima di come potrebbe apparire su Google o Instagram — solo mockup, nessun account collegato.',
     feedback_name: 'Il tuo nome',
@@ -2475,6 +2628,10 @@ const translations = {
     mock_google_badge: 'Mockup Google Recensioni',
     mock_ig_badge: 'Mockup Instagram',
     mock_ig_user: '02boutique_official',
+    mock_ig_location: '02 Boutique',
+    mock_ig_banner_brand: '02 Boutique',
+    mock_ig_banner_tag: 'Tommy Hilfiger · −30% uomo',
+    mock_ig_likes: '124 Mi piace',
     mock_time: '2 settimane fa',
     seed_review_1: 'Selezione curata e consigli su misura. Ho trovato il polo perfetto e −30% come promesso.',
     seed_review_2: 'Negozio piccolo ma molto curato. Ordine gestito in WhatsApp in due minuti.',
@@ -2562,16 +2719,17 @@ const translations = {
     shipping_free: 'Free',
     boutique_note_title: 'Limited selection, personal service',
     boutique_note_lead: '02 Boutique shows only part of the collection online. Every order is handled personally by the shop — no high volume, no hassle. Prefer to visit in store? Message us on WhatsApp and we\'ll hold your size.',
+    value_point_1: 'Curated selection — not the full catalogue, only chosen pieces',
+    value_point_2: 'Every order handled by the shop, with personal attention',
+    value_point_3: 'Visit in store or message us on WhatsApp to reserve your size',
+    float_wa_label: 'WhatsApp',
     share_title: 'Share the offers',
-    share_lead: 'Send the page to clients like your usual SMS — one tap, with link and ready-made text.',
+    share_lead: 'Like the selection? Share this page with anyone.',
     share_whatsapp: 'WhatsApp',
     share_sms: 'SMS',
     share_copy: 'Copy link',
     share_copied: 'Link copied!',
-    owner_kit_toggle: 'For the shop owner — ready SMS text',
-    owner_copy_sms: 'Copy SMS message',
-    owner_sms_copied: 'Message copied!',
-    owner_sms_template: 'New offers from 02 Boutique! Come and see — 30% off men\'s Tommy Hilfiger selection. {url}',
+    share_message: 'Check out the offers from 02 Boutique — men\'s Tommy Hilfiger selection. {url}',
     feedback_title: 'How was your experience?',
     feedback_lead: 'Leave feedback after your visit or purchase. Preview of how it could look on Google or Instagram — mockup only, no accounts connected.',
     feedback_name: 'Your name',
@@ -2585,6 +2743,10 @@ const translations = {
     mock_google_badge: 'Mockup Google Reviews',
     mock_ig_badge: 'Mockup Instagram',
     mock_ig_user: '02boutique_official',
+    mock_ig_location: '02 Boutique',
+    mock_ig_banner_brand: '02 Boutique',
+    mock_ig_banner_tag: 'Tommy Hilfiger · −30% men',
+    mock_ig_likes: '124 likes',
     mock_time: '2 weeks ago',
     seed_review_1: 'Curated selection and tailored advice. Found the perfect polo and −30% as promised.',
     seed_review_2: 'Small shop but very well curated. Order handled on WhatsApp in two minutes.',
@@ -3113,7 +3275,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initWelcomeBack();
   showPromoIfNeeded();
   updateHeaderCartSummary();
-  initShareKit();
   renderFeedbackMockups();
   window.addEventListener('scroll', updateScrollHeader, { passive: true });
   window.addEventListener('resize', updateScrollHeader, { passive: true });
@@ -3346,7 +3507,7 @@ function updateLanguage() {
   if (welcomeText && hasPromoEmail() && document.getElementById('welcomeBackBanner')?.classList.contains('show')) {
     welcomeText.innerHTML = t('welcome_back');
   }
-  updateOwnerSmsTemplate();
+  renderFeedbackMockups();
   const commentEl = document.getElementById('feedbackComment');
   if (commentEl) commentEl.placeholder = t('feedback_comment_ph');
 }
@@ -3450,7 +3611,7 @@ function getPageUrl() {
 }
 
 function getShareMessage() {
-  return t('owner_sms_template').replace('{url}', getPageUrl());
+  return t('share_message').replace('{url}', getPageUrl());
 }
 
 function openWhatsApp(text, phone) {
@@ -3475,24 +3636,6 @@ async function copyShareLink() {
     showToast(t('share_copied'));
   } catch (e) {
     prompt(t('share_copy'), getPageUrl());
-  }
-}
-
-function updateOwnerSmsTemplate() {
-  const el = document.getElementById('ownerSmsTemplate');
-  if (el) el.textContent = getShareMessage();
-}
-
-function initShareKit() {
-  updateOwnerSmsTemplate();
-}
-
-async function copyOwnerSms() {
-  try {
-    await navigator.clipboard.writeText(getShareMessage());
-    showToast(t('owner_sms_copied'));
-  } catch (e) {
-    prompt(t('owner_copy_sms'), getShareMessage());
   }
 }
 
@@ -3581,14 +3724,40 @@ function renderMockGoogleCard(entry) {
   `;
 }
 
-function renderMockInstagramCard(entry) {
+function renderMockInstagramCard(entry, index = 0) {
+  const pairs = [
+    ['MW0MW40701_Z00_main.webp', 'MW0MW42916_Z00_main.webp'],
+    ['MW0MW42317_1A7_main.webp', 'MW0MW42694_DCA_main.webp'],
+    ['MW0MW42548_A1O_main.webp', 'MW0MW42440_0A6_main.webp']
+  ];
+  const [imgA, imgB] = pairs[index % pairs.length];
+
   return `
     <article class="mock-card">
       <div class="mock-card__badge">${t('mock_ig_badge')}</div>
-      <div class="mock-ig__photo">02</div>
-      <div class="mock-ig__bar" aria-hidden="true">♡ 💬 ↗</div>
+      <div class="mock-ig__header">
+        <div class="mock-ig__avatar" aria-hidden="true">02</div>
+        <div class="mock-ig__profile">
+          <div class="mock-ig__username">${t('mock_ig_user')}</div>
+          <div class="mock-ig__location">${t('mock_ig_location')}</div>
+        </div>
+        <span aria-hidden="true">⋯</span>
+      </div>
+      <div class="mock-ig__media">
+        <div class="mock-ig__duo">
+          <img class="mock-ig__img" src="${IMG(imgA)}" alt="" loading="lazy" decoding="async">
+          <img class="mock-ig__img" src="${IMG(imgB)}" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="mock-ig__dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+        <div class="mock-ig__banner">
+          <span class="mock-ig__banner-brand">${t('mock_ig_banner_brand')}</span>
+          <span class="mock-ig__banner-tag">${t('mock_ig_banner_tag')}</span>
+        </div>
+      </div>
+      <div class="mock-ig__bar" aria-hidden="true">♡ 💬 ↗ 🔖</div>
       <div class="mock-ig__body">
-        <div class="mock-ig__user">${t('mock_ig_user')}</div>
+        <div class="mock-ig__likes">${t('mock_ig_likes')}</div>
+        <div class="mock-ig__stars" aria-hidden="true">${starsHtml(entry.rating)}</div>
         <p class="mock-ig__caption"><strong>${escapeHtml(entry.name)}</strong> ${escapeHtml(entry.comment)}</p>
       </div>
     </article>
@@ -3615,8 +3784,8 @@ function renderFeedbackMockups() {
   if (!el) return;
   const userEntries = loadFeedbackEntries();
   const entries = [...userEntries, ...getSeedFeedback()].slice(0, 3);
-  el.innerHTML = entries.map(entry =>
-    renderMockGoogleCard(entry) + renderMockInstagramCard(entry)
+  el.innerHTML = entries.map((entry, index) =>
+    renderMockGoogleCard(entry) + renderMockInstagramCard(entry, index)
   ).join('');
 }
 
