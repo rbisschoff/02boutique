@@ -100,6 +100,27 @@
     justify-self: end;
   }
 
+  .header-ig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 52%, #fcb045 100%);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(131, 58, 180, 0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .header-ig:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(131, 58, 180, 0.45);
+  }
+
+  .header-ig svg { width: 18px; height: 18px; }
+
   .cart-btn {
     position: relative;
     background: none;
@@ -1120,6 +1141,99 @@
     box-shadow: 0 0 0 3px rgba(204, 12, 47, 0.25);
   }
 
+  .social-trust {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 32px 32px 36px;
+  }
+
+  .social-trust__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .social-trust__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .social-trust__note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .ig-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(131, 58, 180, 0.32);
+    transition: transform 0.15s, box-shadow 0.15s;
+    max-width: 100%;
+  }
+
+  .ig-follow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(131, 58, 180, 0.42);
+  }
+
+  .ig-follow-btn__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    flex-shrink: 0;
+  }
+
+  .ig-follow-btn__icon svg { width: 22px; height: 22px; }
+
+  .ig-follow-btn__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .ig-follow-btn__handle {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .ig-follow-btn__sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.92;
+  }
+
+  .ig-follow-btn__cta {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-left: 8px;
+  }
+
   /* Boutique share & feedback */
   .boutique-section {
     max-width: 960px;
@@ -1601,6 +1715,22 @@
   .footer-brand .logo-num { color: #fff; }
   .footer-brand .logo-name { color: #ccc; }
 
+  .footer-social {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-social__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
   .footer-col-title {
     font-size: 11px;
     font-weight: 700;
@@ -1969,6 +2099,15 @@
     .share-actions { flex-direction: column; }
     .share-btn { justify-content: center; width: 100%; }
     .value-banner { padding: 28px 18px 32px; }
+    .social-trust { padding: 28px 18px 32px; }
+    .ig-follow-btn {
+      width: 100%;
+      max-width: 360px;
+      justify-content: flex-start;
+      padding: 12px 16px;
+      gap: 12px;
+    }
+    .ig-follow-btn__cta { display: none; }
     .float-wa { bottom: max(16px, env(safe-area-inset-bottom, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); height: 52px; padding: 0 16px 0 12px; }
   }
 </style>
@@ -1991,6 +2130,9 @@
       <span class="lang-divider">|</span>
       <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
     </div>
+    <a class="header-ig" data-instagram-link href="https://www.instagram.com/02boutique_official/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
     <button type="button" class="cart-btn" onclick="openCart()" aria-label="Shopping bag">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
         <path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>
@@ -2084,6 +2226,23 @@
   </div>
 </section>
 
+<section class="social-trust" aria-labelledby="socialTrustLabel">
+  <div class="social-trust__inner">
+    <p class="social-trust__label" id="socialTrustLabel" data-i18n="social_trust_label">Seguici su Instagram</p>
+    <a class="ig-follow-btn" data-instagram-link href="https://www.instagram.com/02boutique_official/" target="_blank" rel="noopener noreferrer">
+      <span class="ig-follow-btn__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </span>
+      <span class="ig-follow-btn__text">
+        <span class="ig-follow-btn__handle" data-i18n="ig_follow_handle">@02boutique_official</span>
+        <span class="ig-follow-btn__sub" data-i18n="ig_follow_sub">Outfit, novità e promo dal negozio</span>
+      </span>
+      <span class="ig-follow-btn__cta" data-i18n="ig_follow_cta">Seguici</span>
+    </a>
+    <p class="social-trust__note" data-i18n="social_trust_note">Anteprima reale del nostro profilo — novità, look e promozioni.</p>
+  </div>
+</section>
+
 <div class="container">
   <h2 class="section-title" data-i18n="section_title">Pezzi in Promozione</h2>
   <p class="section-subtitle" data-i18n="section_subtitle">Selezione uomo</p>
@@ -2150,6 +2309,19 @@
     <a class="logo" href="index.html">
       <span class="logo-num">02</span><span class="logo-name">Boutique</span>
     </a>
+    <div class="footer-social">
+      <p class="footer-social__label" data-i18n="social_trust_label">Seguici su Instagram</p>
+      <a class="ig-follow-btn" data-instagram-link href="https://www.instagram.com/02boutique_official/" target="_blank" rel="noopener noreferrer">
+        <span class="ig-follow-btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </span>
+        <span class="ig-follow-btn__text">
+          <span class="ig-follow-btn__handle" data-i18n="ig_follow_handle">@02boutique_official</span>
+          <span class="ig-follow-btn__sub" data-i18n="ig_follow_sub">Outfit, novità e promo dal negozio</span>
+        </span>
+        <span class="ig-follow-btn__cta" data-i18n="ig_follow_cta">Seguici</span>
+      </a>
+    </div>
   </div>
   <div class="footer-top">
     <div>
@@ -2257,6 +2429,7 @@
 /* Owner setup — see SETUP-PAYPAL-SHEETS.md */
 const SHOP_CONFIG = {
   whatsapp: '',
+  instagram: 'https://www.instagram.com/02boutique_official/',
   paypalClientId: '',
   googleScriptUrl: '',
   googleScriptSecret: 'change-me-to-a-long-random-string',
@@ -2720,6 +2893,11 @@ const translations = {
     value_point_2: 'Ordine gestito dal negozio, con attenzione personale',
     value_point_3: 'Passa in negozio o scrivici su WhatsApp per riservare la taglia',
     float_wa_label: 'WhatsApp',
+    social_trust_label: 'Seguici su Instagram',
+    social_trust_note: 'Anteprima reale del nostro profilo — novità, look e promozioni.',
+    ig_follow_handle: '@02boutique_official',
+    ig_follow_sub: 'Outfit, novità e promo dal negozio',
+    ig_follow_cta: 'Seguici',
     share_title: 'Condividi le offerte',
     share_lead: 'Ti piace la selezione? Condividi la pagina con chi vuoi.',
     share_whatsapp: 'WhatsApp',
@@ -2839,6 +3017,11 @@ const translations = {
     value_point_2: 'Every order handled by the shop, with personal attention',
     value_point_3: 'Visit in store or message us on WhatsApp to reserve your size',
     float_wa_label: 'WhatsApp',
+    social_trust_label: 'Follow us on Instagram',
+    social_trust_note: 'See our real profile — new arrivals, looks and promotions.',
+    ig_follow_handle: '@02boutique_official',
+    ig_follow_sub: 'Outfits, news and in-store promos',
+    ig_follow_cta: 'Follow',
     share_title: 'Share the offers',
     share_lead: 'Like the selection? Share this page with anyone.',
     share_whatsapp: 'WhatsApp',
@@ -3387,6 +3570,22 @@ function t(key) {
   return translations[currentLanguage][key];
 }
 
+function initInstagramLinks() {
+  const url = (SHOP_CONFIG.instagram || '').trim();
+  document.querySelectorAll('[data-instagram-link]').forEach(el => {
+    if (url) {
+      el.href = url;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  });
+  const headerIg = document.querySelector('.header-ig');
+  if (headerIg && url) {
+    headerIg.setAttribute('aria-label', currentLanguage === 'it' ? 'Instagram 02 Boutique' : '02 Boutique Instagram');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   getStoredPromoEmail();
   loadCart();
@@ -3396,6 +3595,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showPromoIfNeeded();
   updateHeaderCartSummary();
   renderFeedbackMockups();
+  initInstagramLinks();
   window.addEventListener('scroll', updateScrollHeader, { passive: true });
   window.addEventListener('resize', updateScrollHeader, { passive: true });
 });
@@ -3630,6 +3830,7 @@ function updateLanguage() {
   renderFeedbackMockups();
   const commentEl = document.getElementById('feedbackComment');
   if (commentEl) commentEl.placeholder = t('feedback_comment_ph');
+  initInstagramLinks();
 }
 
 function selectColor(gId, colorId) {
