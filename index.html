@@ -1355,13 +1355,15 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     height: 100%;
+    min-height: 100%;
   }
 
-  .mock-ig__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .mock-ig__cell {
+    min-height: 100%;
+    background-color: #1a1a1a;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
   }
 
   .mock-ig__banner {
@@ -2161,7 +2163,13 @@ const SHOP_CONFIG = {
 let cartDelivery = 'pickup';
 let paypalSdkPromise = null;
 
-const IMG = (file) => `images/${file}`;
+const IMG = (file) => {
+  try {
+    return new URL(`images/${file}`, document.baseURI || window.location.href).href;
+  } catch (e) {
+    return `images/${file}`;
+  }
+};
 
 const garments = [
   {
@@ -3745,8 +3753,8 @@ function renderMockInstagramCard(entry, index = 0) {
       </div>
       <div class="mock-ig__media">
         <div class="mock-ig__duo">
-          <img class="mock-ig__img" src="${IMG(imgA)}" alt="" loading="lazy" decoding="async">
-          <img class="mock-ig__img" src="${IMG(imgB)}" alt="" loading="lazy" decoding="async">
+          <div class="mock-ig__cell" style="background-image:url('${IMG(imgA)}')" role="img" aria-label=""></div>
+          <div class="mock-ig__cell" style="background-image:url('${IMG(imgB)}')" role="img" aria-label=""></div>
         </div>
         <div class="mock-ig__dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
         <div class="mock-ig__banner">
